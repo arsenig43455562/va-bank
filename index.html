@@ -194,7 +194,7 @@ h1.h::before,h2.h::before,h3.h::before,p.h::before,.lead::before{content:"";posi
 .stage .b-nik{width:min(32cqw,170px);margin-left:0}
 .stage .b-h{font-size:min(12.5cqw,64px)}
 .stage .b-sub{max-width:92cqw;text-align:center;font-size:15px;margin-top:2px}
-.stage .mc{position:absolute;left:1cqw;top:calc(max(100%, 177.78cqw) * 0.3925 - 23.12cqw);width:58cqw;margin:0}
+.stage .mc{position:absolute;left:1cqw;top:calc(max(100%, 177.78cqw) * 0.3925 - 23.12cqw + 100px);width:58cqw;margin:0}
 .stage .mc .b-circle{left:28.957cqw;top:18.88cqw;width:41.95cqw;height:41.95cqw;transform:none;justify-content:center;padding-top:6.5cqw;box-sizing:border-box;animation:fadeUp .7s ease-out 1.75s both}
 .stage .mc .o-gift{top:21cqw}
 .stage .mc .b-c1{font-size:6.4cqw;line-height:.85}
@@ -467,8 +467,13 @@ p.acc-body{padding-left:18px !important}
 .sec.in .tap-m-a path:last-child{animation-delay:1.3s}
 .sec.in .tap-m-t{animation:fadeUp .6s ease-out .3s both}
 }
+@media (min-width:761px){.who-ph{flex:1 1 0;min-height:300px;height:auto;aspect-ratio:auto}}
+@media (max-width:760px){.r-photos{height:auto;min-width:0;display:flex;flex-direction:column;align-items:center;gap:20px;padding:8px 0}.r-ph{position:static;width:76%;max-width:320px}.r-ph-1{rotate:3deg}.r-ph-2{rotate:-3deg}}
 </style>
 <style>html{scroll-behavior:smooth}body{margin:0;background:#0A0A0A}</style>
+<script>
+window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='IMG')return;var n=+(t.getAttribute('data-r')||0);if(n>=4)return;t.setAttribute('data-r',n+1);var src=t.getAttribute('src').split('?')[0];setTimeout(function(){t.src=src+'?r='+(n+1);},400*(n+1));},true);
+</script>
 </head>
 <body>
 <div style="width: 100%; background: #0A0A0A; color: #FFFFFF; font-family: 'Inter Tight', system-ui, sans-serif; overflow: hidden">
@@ -592,27 +597,27 @@ p.acc-body{padding-left:18px !important}
 <h2 class="h h2"><span class="silver">Для кого это</span> <span class="gold">подойдёт?</span></h2>
 <div class="who-grid">
 <article class="card who">
-<img class="who-ph" src="v_photo.jpg" alt="Никич и Вова в кафе">
+<img loading="lazy" decoding="async" class="who-ph" src="v_photo.jpg" alt="Никич и Вова в кафе">
 <span class="h num">01</span>
 <p>Ты уже пытался, пробовал схемы, платил за курсы и сливался, не дойдя до результата. <span class="hl">Но ещё не сдался, как Вова.</span></p>
-<div class="who-shots"><img src="v_s1.jpg" alt="История Вовы: отправная точка"><img src="v_s2.jpg" alt="Вова положил отцу 200 тысяч на стол"></div>
+<div class="who-shots"><img loading="lazy" decoding="async" src="v_s1.jpg" alt="История Вовы: отправная точка"><img loading="lazy" decoding="async" src="v_s2.jpg" alt="Вова положил отцу 200 тысяч на стол"></div>
 </article>
 <article class="card who">
-<img class="who-ph" src="d_photo.jpg" alt="Денис и его выплаты">
+<img loading="lazy" decoding="async" class="who-ph" src="d_photo.jpg" alt="Денис и его выплаты">
 <span class="h num">02</span>
 <p>Ты добился небольшого результата с инфы в интернете, но так и не смог <span class="hl">масштабировать его, как Денис.</span></p>
-<div class="who-shots"><img src="d_s1.jpg" alt="Цитата Дениса"></div>
+<div class="who-shots"><img loading="lazy" decoding="async" src="d_s1.jpg" alt="Цитата Дениса"></div>
 </article>
 <article class="card who">
-<img class="who-ph" src="i_photo.jpg" alt="Ваня: до и после">
+<img loading="lazy" decoding="async" class="who-ph" src="i_photo.jpg" alt="Ваня: до и после">
 <span class="h num">03</span>
 <p>Ты окончательно за%#ался в найме или в онлайне с клиентами и хочешь <span class="hl">вернуть контроль</span> над жизнью и свою систему заработка, как Ваня.</p>
-<div class="who-shots"><img src="i_s1.jpg" alt="Кем Ваня работал до трафика"></div>
+<div class="who-shots"><img loading="lazy" decoding="async" src="i_s1.jpg" alt="Кем Ваня работал до трафика"></div>
 </article>
 <article class="card who who-4">
 <span class="h num">04</span>
 <p>Ты студент, который пока не знает, чем заняться, чтобы <span class="hl">выйти на хороший доход.</span></p>
-<div class="who-shots"><img src="c_vadim.jpg" alt="Кейс Вадима: 0 → команда, офис и 55 лидов за месяц"><img src="c_fedor.jpg" alt="Кейс Фёдора: 30–40 тысяч → 190 000 ₽ за две недели"><img src="c_stepa.jpg" alt="Кейс Стёпы: от долгов на миллион к собственной команде"></div>
+<div class="who-shots"><img loading="lazy" decoding="async" src="c_vadim.jpg" alt="Кейс Вадима: 0 → команда, офис и 55 лидов за месяц"><img loading="lazy" decoding="async" src="c_fedor.jpg" alt="Кейс Фёдора: 30–40 тысяч → 190 000 ₽ за две недели"><img loading="lazy" decoding="async" src="c_stepa.jpg" alt="Кейс Стёпы: от долгов на миллион к собственной команде"></div>
 </article>
 </div>
 <div class="card mission">
@@ -691,8 +696,8 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 <div class="r-photos" aria-hidden="true">
-<img class="r-ph r-ph-1" src="r_mirror.jpg" alt="">
-<img class="r-ph r-ph-2" src="r_book.jpg" alt="">
+<img loading="lazy" decoding="async" class="r-ph r-ph-1" src="r_mirror.jpg" alt="">
+<img loading="lazy" decoding="async" class="r-ph r-ph-2" src="r_book.jpg" alt="">
 </div>
 </div>
 <div class="note">
@@ -805,15 +810,15 @@ p.acc-body{padding-left:18px !important}
 </div>
 <div class="life">
 <figure class="life-g life-3">
-<div class="life-ph"><img src="tr1.jpg" alt="Никич у Колизея в Риме"><img src="tr2.jpg" alt="Никич под северным сиянием"><img src="tr3.jpg" alt="Никич на закате во Флоренции"></div>
+<div class="life-ph"><img loading="lazy" decoding="async" src="tr1.jpg" alt="Никич у Колизея в Риме"><img loading="lazy" decoding="async" src="tr2.jpg" alt="Никич под северным сиянием"><img loading="lazy" decoding="async" src="tr3.jpg" alt="Никич на закате во Флоренции"></div>
 <figcaption><span class="cap">Путешествия</span>Летаю, куда хочу и когда хочу — без отпуска по графику</figcaption>
 </figure>
 <figure class="life-g">
-<div class="life-ph"><img src="re1.jpg" alt="Никич с букетом цветов"><img src="re2.jpg" alt="Бассейн в спа"></div>
+<div class="life-ph"><img loading="lazy" decoding="async" src="re1.jpg" alt="Никич с букетом цветов"><img loading="lazy" decoding="async" src="re2.jpg" alt="Бассейн в спа"></div>
 <figcaption><span class="cap">Отдых и близкие</span>Время с близкими, а не на работе с 9 до 18</figcaption>
 </figure>
 <figure class="life-g">
-<div class="life-ph"><img src="dr1.jpg" alt="BMW M850i ночью"><img src="dr2.jpg" alt="За рулём BMW M850i"></div>
+<div class="life-ph"><img loading="lazy" decoding="async" src="dr1.jpg" alt="BMW M850i ночью"><img loading="lazy" decoding="async" src="dr2.jpg" alt="За рулём BMW M850i"></div>
 <figcaption><span class="cap">Мечты</span>Закрываю свои мечты сам, а не откладываю «на потом»</figcaption>
 </figure>
 </div>
@@ -863,7 +868,7 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 </div>
-<img class="m-shot" src="module_m0.jpg" alt="Модуль 0 в Telegram-канале курса">
+<img loading="lazy" decoding="async" class="m-shot" src="module_m0.jpg" alt="Модуль 0 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -895,7 +900,7 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 </div>
-<img class="m-shot" src="module_m1.jpg" alt="Модуль 1 в Telegram-канале курса">
+<img loading="lazy" decoding="async" class="m-shot" src="module_m1.jpg" alt="Модуль 1 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -925,7 +930,7 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 </div>
-<img class="m-shot" src="module_m2.jpg" alt="Модуль 2 в Telegram-канале курса">
+<img loading="lazy" decoding="async" class="m-shot" src="module_m2.jpg" alt="Модуль 2 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -955,7 +960,7 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 </div>
-<img class="m-shot" src="module_m3.jpg" alt="Модуль 3 в Telegram-канале курса">
+<img loading="lazy" decoding="async" class="m-shot" src="module_m3.jpg" alt="Модуль 3 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -985,7 +990,7 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 </div>
-<img class="m-shot" src="module_m4.jpg" alt="Модуль 4 в Telegram-канале курса">
+<img loading="lazy" decoding="async" class="m-shot" src="module_m4.jpg" alt="Модуль 4 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -1017,7 +1022,7 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 </div>
-<img class="m-shot" src="module_m5.jpg" alt="Модуль 5 в Telegram-канале курса">
+<img loading="lazy" decoding="async" class="m-shot" src="module_m5.jpg" alt="Модуль 5 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -1047,7 +1052,7 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 </div>
-<img class="m-shot" src="module_m6.jpg" alt="Модуль 6 в Telegram-канале курса">
+<img loading="lazy" decoding="async" class="m-shot" src="module_m6.jpg" alt="Модуль 6 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -1079,7 +1084,7 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 </div>
-<img class="m-shot" src="module_m7.jpg" alt="Модуль 7 в Telegram-канале курса">
+<img loading="lazy" decoding="async" class="m-shot" src="module_m7.jpg" alt="Модуль 7 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -1109,7 +1114,7 @@ p.acc-body{padding-left:18px !important}
 
 </div>
 </div>
-<img class="m-shot" src="module_m8.jpg" alt="Модуль 8 в Telegram-канале курса">
+<img loading="lazy" decoding="async" class="m-shot" src="module_m8.jpg" alt="Модуль 8 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -1124,7 +1129,7 @@ p.acc-body{padding-left:18px !important}
 <span style="padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,190,110,0.3); font-size: 14px; font-weight: 700">Связка «Нано-блогеры»</span>
 <span style="padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,190,110,0.3); font-size: 14px; font-weight: 700">Связка «Тредс / ВК»</span>
 </div>
-<div class="b-shots"><img class="m-shot" src="module_b1.jpg" alt="Бонусный модуль «Продажи» в Telegram"><img class="m-shot" src="module_b2.jpg" alt="Бонус «Связки» в Telegram"></div>
+<div class="b-shots"><img loading="lazy" decoding="async" class="m-shot" src="module_b1.jpg" alt="Бонусный модуль «Продажи» в Telegram"><img loading="lazy" decoding="async" class="m-shot" src="module_b2.jpg" alt="Бонус «Связки» в Telegram"></div>
 </div>
 <a class="cta" href="https://t.me/m/Iy5CbB3LMTIy" style="align-self: flex-start">Больше о продукте</a>
 </div>
@@ -1171,7 +1176,7 @@ p.acc-body{padding-left:18px !important}
 
 <footer class="site-f">
 <div class="wrap" style="padding-top: 28px; padding-bottom: 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<img class="logo-t" src="logo_text.png" alt="VA-Банк" style="height: 30px">
+<img loading="lazy" decoding="async" class="logo-t" src="logo_text.png" alt="VA-Банк" style="height: 30px">
 <span style="font-size: 13px; color: #8E8E8E">[ИП / ИНН] · [Политика конфиденциальности] · [Оферта]</span>
 </div>
 </footer>

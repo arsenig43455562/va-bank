@@ -283,6 +283,7 @@ p.acc-body{padding-left:18px !important}
 .two .col{display:flex;flex-direction:column;gap:24px;min-width:0}
 .h2{font-size:clamp(34px,4.4vw,60px)}
 .h3{font-size:clamp(24px,2.4vw,32px)}
+h2.h,h3.h{line-height:1.06}
 .h1x{font-size:clamp(44px,5.6vw,84px)}
 .h{filter:none}
 .gold,.silver{filter:none}
@@ -341,7 +342,7 @@ p.acc-body{padding-left:18px !important}
 /* для кого */
 .who-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start}
 .who{padding:0 0 22px;display:flex;flex-direction:column;gap:14px;overflow:hidden}
-.who > :not(.who-ph){margin-left:20px;margin-right:20px}
+.who > :not(.who-ph):not(.who-media){margin-left:20px;margin-right:20px}
 .who p{margin:0;font-size:16px;line-height:1.55;color:#EDEDED}
 .who-ph{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-bottom:1px solid rgba(255,255,255,.08)}
 .who-shots{display:flex;flex-direction:column;gap:8px;margin-top:2px}
@@ -382,7 +383,9 @@ p.acc-body{padding-left:18px !important}
 .qlist li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:17px;color:#EDEDED}
 .qlist li::before{content:"— ";color:#FE8931}
 /* как учимся */
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.grid3{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}.grid3>.card{flex:0 0 calc((100% - 32px)/3);min-width:0}
+@media (max-width:1100px){.grid3>.card{flex-basis:calc((100% - 16px)/2)}}
+@media (max-width:760px){.grid3>.card{flex-basis:100%}}
 .fmt{padding:26px 24px;display:flex;flex-direction:column;gap:14px}
 .fmt-h{display:flex;align-items:center;gap:14px}
 .fmt-t{margin:0;font-size:22px;line-height:1.1;color:#fff;background:none;-webkit-text-fill-color:#fff}
@@ -458,6 +461,9 @@ p.acc-body{padding-left:18px !important}
 .scol .shot{margin:0}
 @media (max-width:760px){.sgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.scol{gap:10px}}
 .tap-m{display:none}
+.tap-m.tap-mod{display:flex;justify-content:flex-end;align-items:flex-start;gap:2px;padding-right:20px;margin:0 0 -10px;pointer-events:none}
+@media (max-width:760px){.acc .m-tag{display:inline;font-size:10px;letter-spacing:.08em}}
+.tap-mod .tap-m-t{font-family:Caveat,cursive;font-size:28px;font-weight:700;line-height:1;color:#FFFFFF;transform:rotate(-6deg);margin-top:2px}.tap-mod .tap-m-a{display:block;overflow:visible}.tap-mod .tap-m-a path{stroke-dasharray:120;stroke-dashoffset:120}.sec.in .tap-mod .tap-m-a path{animation:draw .9s ease-out .6s forwards}.sec.in .tap-mod .tap-m-a path:last-child{animation-delay:1.3s}.sec.in .tap-mod .tap-m-t{animation:fadeUp .6s ease-out .3s both}
 @media (max-width:760px){
 .tap-m{display:flex;justify-content:flex-end;align-items:flex-start;gap:2px;padding-right:20px;margin:0 0 -10px;pointer-events:none}
 .tap-m-t{font-family:Caveat,cursive;font-size:28px;font-weight:700;line-height:1;color:#FFFFFF;transform:rotate(-6deg);margin-top:2px}
@@ -469,6 +475,86 @@ p.acc-body{padding-left:18px !important}
 }
 @media (min-width:761px){.who-ph{flex:1 1 0;min-height:300px;height:auto;aspect-ratio:auto}}
 @media (max-width:760px){.r-photos{height:auto;min-width:0;display:flex;flex-direction:column;align-items:center;gap:20px;padding:8px 0}.r-ph{position:static;width:76%;max-width:320px}.r-ph-1{rotate:3deg}.r-ph-2{rotate:-3deg}}
+
+/* === правки 06.11 === */
+.va-big{margin:0 0 -4px;font-size:clamp(64px,7.4vw,112px);line-height:.95}
+.offer-t{font-size:clamp(32px,3.5vw,50px)}
+.pq-grid{columns:3;column-gap:16px}
+.pq{margin:0 0 16px;break-inside:avoid;padding:20px 22px;border-radius:18px 18px 18px 6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);position:relative}
+.pq blockquote{margin:0;font-size:17px;line-height:1.5;color:#EDEDED}
+.pq::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px;background:#FE8931}
+.pq-end{margin:0;font-size:clamp(22px,2.2vw,28px);font-weight:700;color:#fff}
+.sec:not(.in) .pq{opacity:0}.sec.in .pq{animation:cardU .7s cubic-bezier(.2,.8,.2,1) both}
+.who-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;align-items:stretch !important}
+.who-media{position:relative;flex:1 1 auto;min-height:420px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08)}
+.who-media .who-ph{position:absolute;inset:0;width:100%;height:100%;min-height:0;aspect-ratio:auto;object-fit:cover;object-position:50% 25%;border:0}
+.who-badge{position:absolute;top:14px;left:14px;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;border-radius:999px;background:rgba(12,10,8,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(254,137,49,.6);color:#fff;font-family:Oswald,sans-serif;font-weight:600;font-size:16px;letter-spacing:.03em;text-transform:uppercase;line-height:1;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.who-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#FE8931;box-shadow:0 0 10px #FE8931}
+.sticker{position:absolute;right:16px;bottom:18px;z-index:2;width:min(58%,290px);box-sizing:border-box;padding:18px 18px 16px;background:#FFE27A;color:#1B1408;font-family:Caveat,cursive;font-size:22px;font-weight:700;line-height:1.12;transform:rotate(-3deg);border-radius:4px;box-shadow:0 16px 34px rgba(0,0,0,.5)}
+.sticker::before{content:"";position:absolute;top:-10px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(2deg);background:rgba(255,255,255,.55)}
+.sticker .st-end{display:block;margin-top:8px}
+.who-quote{position:absolute;left:14px;right:14px;bottom:14px;z-index:2;padding:14px 16px;border-radius:14px;background:rgba(12,10,8,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-left:3px solid #FE8931;font-size:15px;line-height:1.45;color:#F2F2F2;font-style:italic}
+.who-quote b{color:#FE8931;font-style:normal}
+.story{display:flex;flex-direction:column;gap:8px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08)}
+.story .st-k{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#FE8931;margin-top:4px}
+.story p{margin:0;font-size:15px;line-height:1.55;color:#D9D9D9}.story b{color:#fff}
+.who-4{padding-top:22px}
+.cases{position:relative;display:flex;flex-direction:column;gap:12px}
+.cases > input{position:absolute;opacity:0;pointer-events:none;width:0;height:0}
+.cs-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.cs-tabs label{cursor:pointer;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,190,110,.3);background:rgba(255,255,255,.05);font-size:14px;font-weight:700;color:#EDEDED;transition:background .2s ease}
+#cs1:checked ~ .cs-tabs label[for=cs1],#cs2:checked ~ .cs-tabs label[for=cs2],#cs3:checked ~ .cs-tabs label[for=cs3]{background:linear-gradient(180deg,#FFB43A,#FF7A12);color:#140A00;border-color:transparent}
+.cs-p{display:none;flex-direction:column;gap:10px}
+#cs1:checked ~ .cs-p1,#cs2:checked ~ .cs-p2,#cs3:checked ~ .cs-p3{display:flex}
+.cs-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.cs-media{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(255,255,255,.1)}
+.cs-media.cs-tall{aspect-ratio:9/16}
+.cs-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cs-media .who-badge{top:10px;left:10px;font-size:13px;padding:6px 11px 6px 9px}
+.cs-shot{display:block;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.cs-shot img{display:block;width:100%;height:auto}
+.cs-plaque{padding:16px 18px;border-radius:14px;background:linear-gradient(160deg,rgba(254,137,49,.16),rgba(255,255,255,.03));border:1px solid rgba(254,137,49,.35);display:flex;flex-direction:column;gap:8px}
+.cs-plaque .h{font-size:22px;line-height:1.05;color:#FE8931;background:none;-webkit-text-fill-color:#FE8931}
+.cs-plaque p{margin:0;font-size:15px;line-height:1.55;color:#E6E6E6}.cs-plaque p b{color:#fff}
+.mission-t{flex:1 1 420px;display:flex;flex-direction:column;gap:10px}
+.mission-t p{flex:none !important;margin:0;font-size:18px;line-height:1.55;color:#EDEDED}
+.rv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}.rv-col{display:flex;flex-direction:column;gap:16px}.rv-col .shot{margin:0}
+.rv{display:flex;flex-direction:column;gap:2px;background:#111}
+.rv-img{position:relative}.rv-img img{display:block;width:100%;height:auto}
+.r-body p{margin:0 0 10px;font-family:'Inter Tight',sans-serif;font-size:16px;line-height:1.6;color:#C8C8C8}.r-body p:last-child{margin-bottom:0}
+.r-body p.b{color:#FFFFFF;font-weight:700;font-size:17px}
+.lead-res{padding:18px 22px;border-radius:16px;background:rgba(254,137,49,.1);border:1px solid rgba(254,137,49,.35);border-left:4px solid #FE8931}
+.m-itog{margin:0;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.05);border-left:3px solid #FE8931;font-size:15px;line-height:1.5;font-weight:700;color:#fff}
+.tf-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:18px;align-items:start}
+.tf{position:relative;padding:32px 30px;display:flex;flex-direction:column;gap:16px}
+.tf-k{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#9A9A9A}
+.tf-t{font-size:clamp(40px,4vw,60px);margin-top:-8px}
+.tf .cta{align-self:flex-start;margin-top:8px}
+.tf-top{border-color:rgba(254,137,49,.55);background:linear-gradient(160deg,rgba(254,137,49,.14),rgba(255,255,255,.02) 55%);box-shadow:0 30px 80px rgba(254,137,49,.12)}
+.tf-badge{position:absolute;top:-14px;right:24px;padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,#FFB43A,#FF7A12);color:#140A00;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.tf-plus{margin:0;font-size:16px;font-weight:700;color:#FE8931}
+.tf-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+.tf-list > li{display:flex;gap:14px;align-items:flex-start}
+.tf-n{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(254,137,49,.15);border:1px solid rgba(254,137,49,.5);color:#FE8931;-webkit-text-fill-color:#FE8931;font-size:18px;line-height:1}
+.tf-it{display:block;font-size:17px;color:#fff;margin-bottom:4px}
+.tf-list p{margin:0;font-size:15px;line-height:1.55;color:#CFCFCF}.tf-list p b{color:#fff}
+.tf-sub{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.tf-sub li{position:relative;padding-left:20px;font-size:15px;color:#E6E6E6}.tf-sub li::before{content:"✓";position:absolute;left:0;color:#FE8931;font-weight:800}
+.tf-note{margin:0;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.05);font-size:16px;line-height:1.5;color:#E6E6E6}.tf-note b{color:#FE8931}
+.cta-ghost{background:transparent !important;border:1.5px solid rgba(254,137,49,.7);color:#FE8931 !important;box-shadow:none !important}
+@media (max-width:1100px){.pq-grid{columns:2}.tf-grid{grid-template-columns:1fr}}
+@media (max-width:760px){
+.who-grid{grid-template-columns:1fr !important}
+.who-media{flex:none;min-height:0;aspect-ratio:4/5}
+.sticker{width:66%;font-size:19px;padding:14px 14px 12px;right:10px;bottom:12px}
+.pq-grid{columns:1}.pq{margin-bottom:10px;padding:16px 18px}.pq blockquote{font-size:16px}
+.cs-row:not(.cs-row-p){grid-template-columns:1fr}.cs-media:not(.cs-tall){aspect-ratio:4/5}.rv-grid{grid-template-columns:1fr;gap:10px}.rv-col{gap:10px}
+.tf{padding:28px 20px}
+.va-big{font-size:64px}
+.offer-t{font-size:32px}
+}
+
+.tf p,.tf li,.tf-it,.story p,.cs-plaque p,.m-itog,.pq blockquote,.pq-end,.mission-t p,.who-quote,.cs-tabs label{font-family:'Inter Tight',sans-serif}
 </style>
 <style>html{scroll-behavior:smooth}body{margin:0;background:#0A0A0A}</style>
 <script>
@@ -566,13 +652,13 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <section id="offer" class="sec glow-r " data-k="s1">
 <div class="wrap two">
 <div class="col">
-<p class="eyebrow">VA-Банк · трафик на банки и РКО</p>
-<h2 class="h h2"><span class="silver">Твой выход с нуля на доход</span> <span class="gold nw">от 150.000&nbsp;₽</span></h2>
-<p class="lead">На трафике и РКО <b>за 2,5 месяца</b>. Разбираемся в нише и создаём фундамент, без которого первые 150.000&nbsp;₽ в трафике не сделать.</p>
+<p class="h va-big"><span class="gold">VA-Банк</span></p>
+<h2 class="h h2 offer-t"><span class="silver">Твой выход на доход</span> <span class="gold nw">от 150.000&nbsp;₽</span> <span class="silver">на трафике и РКО</span> <span class="gold nw">за 2 месяца</span></h2>
+<p class="lead">С нуля создаём фундамент, с которого заработаем первые деньги, <b>а затем масштабируем результат до 150–300–500 тысяч рублей</b></p>
 <ul class="ticks">
-<li><b>Без вложений</b> — создаём трафик и скрипты</li>
-<li><b>Онлайн</b> — первые клиенты уже на старте</li>
-<li><b>Масштаб</b> — закрепляем и растём от 150.000&nbsp;₽</li>
+<li><b>Без вложений</b> — на старте лёгкие <b>100.000&nbsp;₽ почти «гарантом»</b></li>
+<li><b>В онлайне</b> — строим <b>доход, сидя в телефоне или за ПК</b></li>
+<li><b>Масштабируемо</b> — <b>не «темка»</b>, не разовая «акция», а <b>реальный бизнес</b>, где закрепим всю информацию и подтянем доход до 150.000&nbsp;₽</li>
 </ul>
 <a class="cta" href="https://t.me/m/Iy5CbB3LMTIy">Узнать о продукте лично</a>
 </div>
@@ -591,38 +677,81 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 </div>
 </section>
 
+<!-- БЛОК 1.5 — ФРАЗЫ -->
+<section id="pain" class="sec glow-l " data-k="s12">
+<div class="wrap stack">
+<div class="head">
+<h2 class="h h2"><span class="silver">Знакомы ли тебе</span> <span class="gold">все эти фразы?</span></h2>
+<p class="lead">Я лично созванивался с <b>15+ ребятами</b>, которые не занимаются трафиком, и вот о чём они думают 👇🏼</p>
+</div>
+<div class="pq-grid"><figure class="pq"><blockquote>«Чем я хуже?»</blockquote></figure><figure class="pq"><blockquote>«Помимо работы, сейчас жизни никакой нету. Я постоянно нахожусь на работе. Я работаю по 13 часов»</blockquote></figure><figure class="pq"><blockquote>«Честно, не знаю, чем заниматься. Вроде вокруг все зарабатывают, но я без понятия, на чём»</blockquote></figure><figure class="pq"><blockquote>«Здесь деградация… зарплата здесь никуда не двигается… я не то, что не получаю больше, я наоборот теряю»</blockquote></figure><figure class="pq"><blockquote>«Ищу своё направление и пока не понимаю)) как будто везде обман»</blockquote></figure><figure class="pq"><blockquote>«В найме относятся как к говну, а не как к работнику»</blockquote></figure><figure class="pq"><blockquote>«Мне необходимо здесь работать, чтобы выжить»</blockquote></figure><figure class="pq"><blockquote>«Тупо нет первого шага. Не знаю, что делать здесь и сейчас»</blockquote></figure><figure class="pq"><blockquote>«Усталость просто. И груз, тильт, что ну вот не всё успеваю, а другие успевают»</blockquote></figure></div>
+<p class="pq-end">Если тебе это знакомо — тебе точно стоит <span class="hl">задуматься.</span></p>
+</div>
+</section>
+
 <!-- БЛОК 2 — ДЛЯ КОГО -->
 <section id="who" class="sec " data-k="s2">
 <div class="wrap stack">
-<h2 class="h h2"><span class="silver">Для кого это</span> <span class="gold">подойдёт?</span></h2>
+<h2 class="h h2"><span class="silver">Для кого подойдёт</span> <span class="gold">VA-Банк?</span></h2>
 <div class="who-grid">
 <article class="card who">
-<img loading="lazy" decoding="async" class="who-ph" src="v_photo.jpg" alt="Никич и Вова в кафе">
+<div class="who-media"><img loading="lazy" decoding="async" class="who-ph" src="i_photo.jpg" alt="Ваня: до и после"><span class="who-badge">Как Ваня</span>
+<div class="sticker"><b>до этого:</b><br>— перевозчик в Озоне<br>— таксист эконома<br>— продавец в дилере<br>— продавец в Билайне<br><span class="st-end">короче, он всё перепробовал) а щас купил хорошую тачку, заработав деньги на трафике, с облегчением</span></div></div>
 <span class="h num">01</span>
-<p>Ты уже пытался, пробовал схемы, платил за курсы и сливался, не дойдя до результата. <span class="hl">Но ещё не сдался, как Вова.</span></p>
-<div class="who-shots"><img loading="lazy" decoding="async" src="v_s1.jpg" alt="История Вовы: отправная точка"><img loading="lazy" decoding="async" src="v_s2.jpg" alt="Вова положил отцу 200 тысяч на стол"></div>
-</article>
-<article class="card who">
-<img loading="lazy" decoding="async" class="who-ph" src="d_photo.jpg" alt="Денис и его выплаты">
-<span class="h num">02</span>
-<p>Ты добился небольшого результата с инфы в интернете, но так и не смог <span class="hl">масштабировать его, как Денис.</span></p>
-<div class="who-shots"><img loading="lazy" decoding="async" src="d_s1.jpg" alt="Цитата Дениса"></div>
-</article>
-<article class="card who">
-<img loading="lazy" decoding="async" class="who-ph" src="i_photo.jpg" alt="Ваня: до и после">
-<span class="h num">03</span>
-<p>Ты окончательно за%#ался в найме или в онлайне с клиентами и хочешь <span class="hl">вернуть контроль</span> над жизнью и свою систему заработка, как Ваня.</p>
-<div class="who-shots"><img loading="lazy" decoding="async" src="i_s1.jpg" alt="Кем Ваня работал до трафика"></div>
+<p>Ты окончательно за%#ался в найме или в онлайне с клиентами и хочешь <span class="hl">вернуть контроль</span> над жизнью и свою систему заработка.</p>
 </article>
 <article class="card who who-4">
-<span class="h num">04</span>
+<span class="h num">02</span>
 <p>Ты студент, который пока не знает, чем заняться, чтобы <span class="hl">выйти на хороший доход.</span></p>
-<div class="who-shots"><img loading="lazy" decoding="async" src="c_vadim.jpg" alt="Кейс Вадима: 0 → команда, офис и 55 лидов за месяц"><img loading="lazy" decoding="async" src="c_fedor.jpg" alt="Кейс Фёдора: 30–40 тысяч → 190 000 ₽ за две недели"><img loading="lazy" decoding="async" src="c_stepa.jpg" alt="Кейс Стёпы: от долгов на миллион к собственной команде"></div>
+<div class="cases">
+<input type="radio" name="wcase" id="cs1" checked=""><input type="radio" name="wcase" id="cs2"><input type="radio" name="wcase" id="cs3">
+<div class="cs-tabs"><label for="cs1">Вадим</label><label for="cs2">Фёдор</label><label for="cs3">Стёпа</label></div>
+<div class="cs-p cs-p1"><div class="cs-row">
+<div class="cs-media"><img loading="lazy" decoding="async" src="w_vadim_p.jpg" alt="Вадим"><span class="who-badge">Вадим, 19 лет</span></div>
+<a class="cs-shot" href="w_vadim_s.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="w_vadim_s.jpg" alt="Вадим: до обучения и после — офис в Сургуте и 55 лидов за месяц"></a>
+</div></div>
+<div class="cs-p cs-p2"><div class="cs-row cs-row-p">
+<div class="cs-media"><img loading="lazy" decoding="async" src="w_fedor_p1.jpg" alt="Фёдор"><span class="who-badge">Фёдор</span></div>
+<div class="cs-media"><img loading="lazy" decoding="async" src="w_fedor_p2.jpg" alt="Выплата Фёдора наличными"></div>
+</div><div class="cs-row cs-row-s">
+<a class="cs-shot" href="w_fedor_s1.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="w_fedor_s1.jpg" alt="Фёдор о себе до трафика"></a>
+<a class="cs-shot" href="w_fedor_s2.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="w_fedor_s2.jpg" alt="Фёдор: 190к за полмесяца"></a>
+</div></div>
+<div class="cs-p cs-p3">
+<div class="cs-plaque"><b class="h">От долгов на миллион — к собственной команде</b><p>Представь: тебе 19 лет, за плечами неудачный опыт в бизнесе, <b>миллион рублей долгов</b> и платежи, которые нужно закрывать каждый месяц… А Стёпе даже представлять не надо)))</p><p>В какой-то момент он уже думал, что придётся идти работать на склад, чтобы просто расплатиться с долгами. Но <b>решил попробовать другой путь.</b></p></div>
+<div class="cs-row">
+<div class="cs-media cs-tall"><img loading="lazy" decoding="async" src="w_stepa_p.jpg" alt="Стёпа и его долги"><span class="who-badge">Стёпа</span></div>
+<a class="cs-shot" href="w_stepa_s.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="w_stepa_s.jpg" alt="Переписка со Стёпой: из долгов вылез"></a>
+</div></div>
+</div>
+</article>
+<article class="card who">
+<div class="who-media"><img loading="lazy" decoding="async" class="who-ph" src="v_photo.jpg" alt="Никич и Вова в кафе"><span class="who-badge">Как Вова</span></div>
+<span class="h num">03</span>
+<p>Ты уже пытался, пробовал схемы, платил за курсы и сливался, не дойдя до результата. <span class="hl">Но ещё не сдался.</span></p>
+<div class="story">
+<span class="st-k">▪️ Отправная точка</span>
+<p>Работал инструктором на Saborde, получал <b>максимум 60к в месяц</b>, параллельно волонтёрил и помогал отцу на стройке. В конце 11 класса решил попробовать себя в трафике.</p>
+<p>Первый курс за 30 тысяч оказался полной хернёй — деньги на ветер. Не сдался и в итоге попал ко мне на тест-драйв. Нашёл рабочую систему, с которой работает до сих пор, и заработал <b>первые 110к.</b></p>
+<span class="st-k">▪️ Точка Б</span>
+<p>За полтора года, с июня 2025-го, заработал <b>больше 2 млн рублей.</b></p>
+<p>На Новый год 2026 подарил сестре iPhone за 85 тысяч, а себе позволил попробовать чёрную икру за 40 тысяч. У богатых свои причуды 😏 С первой выплаты купил MacBook, чтобы работать из кофеен 😂</p>
+</div>
+</article>
+<article class="card who">
+<div class="who-media"><img loading="lazy" decoding="async" class="who-ph" src="d_photo.jpg" alt="Денис и его выплаты"><span class="who-badge">Как Денис</span>
+<div class="who-quote">«Вообще не понимал, что такое финансовая вертикаль и РКО и главное — <b>как на этом зарабатывать</b>»</div></div>
+<span class="h num">04</span>
+<p>Ты добился небольшого результата с инфы в интернете, но так и не смог <span class="hl">масштабировать его.</span></p>
+<div class="who-shots"><img loading="lazy" decoding="async" src="w_denis_s.jpg" alt="Денис: чем занимался до финансовой вертикали"></div>
 </article>
 </div>
 <div class="card mission">
 <div class="mission-n"><span class="h num-xl">200+</span><span class="cap">студентов с результатом</span></div>
-<p>Я понял, что большие бабки — это не удача, а система. Я собрал всё, что сработало для меня и 200+ студентов, в VA-Банк. За 30–45 дней ты выйдешь на <span class="hl">150–300к в месяц</span> — даже если тебя кидали, ты не веришь в курсы или начинал 100 раз.</p>
+<div class="mission-t">
+<p>Я понял, что большие бабки — это не удача, а система. Я собрал всё, что сработало для меня и 200+ студентов, в VA-Банк. За 45 дней ты можешь выйти на <span class="hl">150–300к в месяц</span> — даже если ты ПОЛНЫЙ ноль или не понимаешь, как двигаться дальше, был неудачный опыт ИЛИ всё вместе)</p>
+<p>— подойдёт любому, кто горит идеей найти <span class="hl">топ-скилл на годы вперёд</span>, который хорошо оплачивается</p>
+</div>
 </div>
 </div>
 </section>
@@ -634,14 +763,9 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <h2 class="h h2"><span class="silver">Результаты</span> <span class="gold">учеников</span></h2>
 <p class="lead">Переписки, выплаты, статистика и истории тех, кто уже прошёл путь в трафике.</p>
 </div>
-<div class="sgrid">
-<div class="scol"><figure class="shot"><img src="st06.jpg" alt="Результат ученика 1" loading="lazy"></figure><figure class="shot"><img src="st11.jpg" alt="Результат ученика 2" loading="lazy"></figure><figure class="shot"><img src="st12.jpg" alt="Результат ученика 3" loading="lazy"></figure></div>
-<div class="scol"><figure class="shot"><img src="st01.jpg" alt="Результат ученика 4" loading="lazy"></figure><figure class="shot"><img src="st03.jpg" alt="Результат ученика 5" loading="lazy"></figure><figure class="shot"><img src="st10.jpg" alt="Результат ученика 6" loading="lazy"></figure><figure class="shot"><img src="st14.jpg" alt="Результат ученика 7" loading="lazy"></figure></div>
-<div class="scol"><figure class="shot"><img src="st02.jpg" alt="Результат ученика 8" loading="lazy"></figure><figure class="shot"><img src="st07.jpg" alt="Результат ученика 9" loading="lazy"></figure><figure class="shot"><img src="st13.jpg" alt="Результат ученика 10" loading="lazy"></figure></div>
-<div class="scol"><figure class="shot"><img src="st04.jpg" alt="Результат ученика 11" loading="lazy"></figure><figure class="shot"><img src="st05.jpg" alt="Результат ученика 12" loading="lazy"></figure><figure class="shot"><img src="st08.jpg" alt="Результат ученика 13" loading="lazy"></figure><figure class="shot"><img src="st09.jpg" alt="Результат ученика 14" loading="lazy"></figure></div>
-</div>
-</div>
-</section>
+<div class="rv-grid"><div class="rv-col"><figure class="shot rv"><div class="rv-img"><img src="rv_ilya.jpg" alt="Илья и его статистика в LeadStore" loading="lazy"><span class="who-badge">Илья</span></div></figure><figure class="shot rv"><div class="rv-img"><img src="rv_bal.jpg" alt="Баланс 169 тысяч и отзыв: 140к за первые 2 недели" loading="lazy"></div></figure><figure class="shot rv"><div class="rv-img"><img src="rv_wauze.jpg" alt="Статистика и одобрения ученика WauzeX" loading="lazy"></div></figure></div><div class="rv-col"><figure class="shot rv"><div class="rv-img"><img src="rv_g1.jpg" alt="Статистика: 2,3 млн ₽ дохода" loading="lazy"></div><div class="rv-img"><img src="rv_g2.jpg" alt="Переписка: больше 200 ЦД и 3 млн за месяц" loading="lazy"></div><div class="rv-img"><img src="rv_g3.jpg" alt="Ученик купил BMW" loading="lazy"></div></figure></div><div class="rv-col"><figure class="shot rv"><div class="rv-img"><img src="rv_nastya_p.jpg" alt="Анастасия" loading="lazy"><span class="who-badge">Анастасия, 19 лет</span></div><div class="rv-img"><img src="rv_nastya_s.jpg" alt="История Анастасии: точка А и точка Б" loading="lazy"></div></figure><figure class="shot rv"><div class="rv-img"><img src="rv_azamat.jpg" alt="История Азамата: 300 тысяч в месяц" loading="lazy"></div></figure></div></div></div>
+</section></div>
+
 
 <!-- БЛОК 3 — ПРИЧИНЫ -->
 <section class="sec " data-k="s3">
@@ -660,7 +784,7 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span class="acc-r"><span class="acc-tag">скрыть</span><span class="acc-ic " style="transform: rotate(180deg)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></span></span>
 </button>
 <div class="acc-panel">
-<p class="acc-body r-body">…но «простому смертному» выйти на топовые РКО-партнёрки НЕЛЬЗЯ, ведь за тебя должны знать люди свыше. А именно лучшие траферы, менеджеры партнёрок и т.д.</p>
+<div class="acc-body r-body"><p class="">…но «простому смертному» выйти на топовые РКО-партнёрки НЕЛЬЗЯ, ведь за тебя должны знать люди свыше. А именно лучшие траферы, менеджеры партнёрок и т.д.</p></div>
 </div>
 </div>
 
@@ -670,7 +794,7 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span class="acc-r"><span class="acc-tag">раскрой</span><span class="acc-ic pulse" style="transform: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></span></span>
 </button>
 <div class="acc-panel" hidden="">
-<p class="acc-body r-body">= нет фундамента в начале, и вместо РОСТА и увеличения дохода ты можешь потерять больше.</p>
+<div class="acc-body r-body"><p class="">= нет фундамента в начале, и вместо РОСТА и увеличения дохода ты можешь потерять больше.</p></div>
 </div>
 </div>
 
@@ -680,7 +804,7 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span class="acc-r"><span class="acc-tag">раскрой</span><span class="acc-ic pulse" style="transform: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></span></span>
 </button>
 <div class="acc-panel" hidden="">
-<p class="acc-body r-body">Многие не знают, как общаться с людьми, что конкретно говорить и на какие боли давить. Что такое возражения и как работать со скриптами. Итог: делаешь всё подряд, теряешь лидов, время и деньги. Многие сливаются, потому что не видят результата, а результата нет, так как нет стратегии.</p>
+<div class="acc-body r-body"><p class="">Многие не знают, как общаться с людьми, что конкретно говорить и на какие боли давить. Что такое возражения и как работать со скриптами.</p><p class="b">Итог: делаешь всё подряд, теряешь лидов, время и деньги.</p><p class="">Многие сливаются, потому что не видят результата, а результата нет, так как нет стратегии.</p></div>
 </div>
 </div>
 
@@ -690,7 +814,7 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span class="acc-r"><span class="acc-tag">раскрой</span><span class="acc-ic pulse" style="transform: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></span></span>
 </button>
 <div class="acc-panel" hidden="">
-<p class="acc-body r-body">Никого вокруг, кто бы мог подсказать, помочь, указать на ошибки и за руку довести до результата и 150.000&nbsp;₽ в месяц. Даже я лично проходил 5 обучений по этой сфере и сейчас общаюсь с топами, чтобы каждый день актуализировать свою информацию. В соло здесь не вывезти.</p>
+<div class="acc-body r-body"><p class="">Никого вокруг, кто бы мог подсказать, помочь, указать на ошибки и за руку довести до результата и 150.000 ₽ в месяц.</p><p class="b">В трафике это конец) и ты потеряешь весь доход за пару кликов.</p><p class="">Я лично проходил 5 обучений по трафику, а сейчас общаюсь с топами России, чтобы каждый день актуализировать свою информацию. В соло здесь не вывезти.</p></div>
 </div>
 </div>
 
@@ -834,39 +958,38 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <div class="wrap stack">
 <div class="head">
 <h2 class="h h2"><span class="gold">VA-Банк</span> <span class="silver">закрывает все нюансы</span></h2>
-<p class="lead">Ты либо сам разбираешься в трафике, изучив <b>7 рабочих подходов</b>, либо я поставляю тебе трафик. Не получиться просто не может.</p>
+<p class="lead">Когда я создавал это обучение, мы с учениками и командой нашли главную проблему ВСЕХ, кто начинает путь в трафике на банки: <b>«Откуда брать клиентов?»</b></p>
+<p class="lead">И я придумал очень крутую систему обучения — её нет ни у кого на рынке.</p>
+<p class="lead">Я выдаю <b>7 источников трафика</b>, чтобы у тебя ТОЧНО вышло. Но) даже если не выйдет — я и моя команда будем поставлять тебе трафик.</p>
+<p class="lead lead-res"><b>Итог: мы проведём тебя ОТ и ДО по трафику и закроем этот вопрос, чтобы клиенты были стабильными, а в худшем случае — будем поставлять их тебе сами. Варианта не заработать нет)</b></p>
 </div>
 <h3 id="modules" class="h h3" style="scroll-margin-top: 24px"><span class="silver">Системный выход на</span> <span class="gold">150–300к</span></h3>
 <div style="display: flex; flex-direction: column; gap: 10px">
+<div class="tap-m tap-mod" aria-hidden="true"><span class="tap-m-t">Раскрой</span><svg class="tap-m-a" width="74" height="58" viewBox="0 0 74 58" fill="none"><path d="M3 14 C 18 4, 44 2, 56 16 C 63 25, 62 36, 58 47" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M49 39 C 52 43, 55 46, 58 49 C 61 45, 64 41, 68 38" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
 
 <div class="card acc-card" style="border-color: rgba(255,160,60,0.6)">
 <button class="acc" type="button" aria-expanded="true">
 <span style="display: flex; align-items: center; gap: 18px">
 <span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Модуль 0</span>
-<span>Введение</span>
+<span>Изучение теории</span>
 </span>
-<span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transform: rotate(180deg)">
+<span class="acc-r"><span class="acc-tag m-tag">скрыть</span><span class="acc-ic" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: rotate(180deg)">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
+</span></span>
 </button>
 <div class="acc-panel">
 <div class="acc-body m-body">
 <div class="m-text">
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Знакомство и общая картина: мой путь и результаты, как устроена работа и что нужно от тебя. Плюс главные вопросы про трафик и как развеять пустые страхи.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Разберём ключевые принципы работы с трафиком, изучим основные инструменты и подходы к запуску связок.</p>
 <div style="padding: 16px 18px; border-radius: 14px; background: rgba(255,138,31,0.12); border: 1px solid rgba(255,138,31,0.32); display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FE8931">Результат</span>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Узнаешь, из чего состоит обучение и как мы работаем</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Работаем поэтапно: ЛУЧШИЕ партнёрки, работающие скрипты</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Поймёшь, с чего начать: с себя, потом ближний круг</span></div>
-
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Увидишь, как идут деньги и что такое холд</span></div>
-
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Поймёшь, почему важны домашки и команда</span></div>
-
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Будешь знать, чего не ждать в первый месяц</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Разбираем каждую непонятную тему с помощью уроков и куратора</span></div>
 
 </div>
+
 </div>
 <img loading="lazy" decoding="async" class="m-shot" src="module_m0.jpg" alt="Модуль 0 в Telegram-канале курса">
 </div>
@@ -879,26 +1002,29 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Модуль 1</span>
 <span>Партнёрки и выплаты</span>
 </span>
-<span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transform: none">
+<span class="acc-r"><span class="acc-tag m-tag">раскрой</span><span class="acc-ic pulse" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: none">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
+</span></span>
 </button>
 <div class="acc-panel" hidden="">
 <div class="acc-body m-body">
 <div class="m-text">
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Регистрация в RKO Group, РКО Партнёр, Бизнес Система, FCN и LeadGeed. Как работать в партнёрках, выводить средства, прикрепить реквизиты, ИП на НПД.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Регистрация в 4 ЛУЧШИХ партнёрках, а также: как работать на партнёрках, выводить средства, первые 15.000 ₽ на бизнес-карте.</p>
 <div style="padding: 16px 18px; border-radius: 14px; background: rgba(255,138,31,0.12); border: 1px solid rgba(255,138,31,0.32); display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FE8931">Результат</span>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Регистрация и работа в основных партнёрках</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Регистрация и работа в ТОП-партнёрках</span></div>
 
 <div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Настройка реквизитов для выплат</span></div>
 
 <div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Вывод заработанных средств</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Работа с ИП на НПД</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Выдача первых 3 практических заданий</span></div>
+
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Первые деньги и бизнес-карта</span></div>
 
 </div>
+
 </div>
 <img loading="lazy" decoding="async" class="m-shot" src="module_m1.jpg" alt="Модуль 1 в Telegram-канале курса">
 </div>
@@ -909,26 +1035,29 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <button class="acc" type="button" aria-expanded="false">
 <span style="display: flex; align-items: center; gap: 18px">
 <span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Модуль 2</span>
-<span>Офферы</span>
+<span>Задания от банков</span>
 </span>
-<span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transform: none">
+<span class="acc-r"><span class="acc-tag m-tag">раскрой</span><span class="acc-ic pulse" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: none">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
+</span></span>
 </button>
 <div class="acc-panel" hidden="">
 <div class="acc-body m-body">
 <div class="m-text">
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Учимся читать карточки офферов, считать реальную прибыль и не терять деньги при тесте новых предложений.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Даём ЛУЧШИЕ задания от банков, считаем реальную прибыль и не теряем деньги при тесте новых предложений.</p>
 <div style="padding: 16px 18px; border-radius: 14px; background: rgba(255,138,31,0.12); border: 1px solid rgba(255,138,31,0.32); display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FE8931">Результат</span>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Выбираешь оффер и считаешь, сколько останется на руках</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Выбираешь ЗАДАНИЕ от банка и считаешь, сколько останется на руках</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Тестируешь новое без потерь</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Закрываем первых клиентов из знакомых и друзей по готовым скриптам</span></div>
+
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Пробуешь задания и зарабатываешь — ведём за ручку</span></div>
 
 <div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Актуальный список офферов внутри модуля</span></div>
 
 </div>
+
 </div>
 <img loading="lazy" decoding="async" class="m-shot" src="module_m2.jpg" alt="Модуль 2 в Telegram-канале курса">
 </div>
@@ -941,24 +1070,25 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Модуль 3</span>
 <span>Первые клиенты</span>
 </span>
-<span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transform: none">
+<span class="acc-r"><span class="acc-tag m-tag">раскрой</span><span class="acc-ic pulse" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: none">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
+</span></span>
 </button>
 <div class="acc-panel" hidden="">
 <div class="acc-body m-body">
 <div class="m-text">
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">С кого начинать и как находить первых людей. Без шаблонов — на живых примерах.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">С кого начинать и как находить первых людей ОНЛАЙН. Без шаблонов — на живых примерах.</p>
 <div style="padding: 16px 18px; border-radius: 14px; background: rgba(255,138,31,0.12); border: 1px solid rgba(255,138,31,0.32); display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FE8931">Результат</span>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Список знакомых, с которых начнёшь</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Составляем список знакомых, с которых начнём, и пробуем</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Понимание, кому нельзя оформлять продукты</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Даём понимание тонкостей: кому нельзя оформлять продукты? как поступить лучше?</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Свой способ вести первый разговор</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>СКРИПТ-способ вести первый разговор, чтобы ТОЧНО получить результат</span></div>
 
 </div>
+
 </div>
 <img loading="lazy" decoding="async" class="m-shot" src="module_m3.jpg" alt="Модуль 3 в Telegram-канале курса">
 </div>
@@ -969,26 +1099,31 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <button class="acc" type="button" aria-expanded="false">
 <span style="display: flex; align-items: center; gap: 18px">
 <span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Модуль 4</span>
-<span>Скрипты и диалоги</span>
+<span>Общение и скрипты</span>
 </span>
-<span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transform: none">
+<span class="acc-r"><span class="acc-tag m-tag">раскрой</span><span class="acc-ic pulse" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: none">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
+</span></span>
 </button>
 <div class="acc-panel" hidden="">
 <div class="acc-body m-body">
 <div class="m-text">
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Как рассказывать про МФО и РКО, чтобы человек понял и не испугался, и как вести его на оформлении. Главное правило: знать продукт и говорить честно.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Как общаться с людьми? Как рассказывать про МФО и РКО, чтобы человек понял и не испугался? И как вести его на оформлении?</p>
 <div style="padding: 16px 18px; border-radius: 14px; background: rgba(255,138,31,0.12); border: 1px solid rgba(255,138,31,0.32); display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FE8931">Результат</span>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Просто объясняешь займы и ИП на НПД</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Просто объясняешь займы и ИП, где с человека можно сделать совокупно 100к+</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Отвечаешь на частые страхи</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Отвечаешь на самые частые страхи, возражения и улучшаешь общение</span></div>
 
 <div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Ведёшь человека по шагам оформления</span></div>
 
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Больше людей соглашаются — денег становится больше)</span></div>
+
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Создаёшь СВОЙ уникальный скрипт, где МИНИМУМ усилий даёт МАКСИМУМ результата</span></div>
+
 </div>
+<p class="m-itog">Главное правило: знать продукт и говорить честно.</p>
 </div>
 <img loading="lazy" decoding="async" class="m-shot" src="module_m4.jpg" alt="Модуль 4 в Telegram-канале курса">
 </div>
@@ -999,11 +1134,11 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <button class="acc" type="button" aria-expanded="false">
 <span style="display: flex; align-items: center; gap: 18px">
 <span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Модуль 5</span>
-<span>Инструменты</span>
+<span>Инструменты и реклама</span>
 </span>
-<span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transform: none">
+<span class="acc-r"><span class="acc-tag m-tag">раскрой</span><span class="acc-ic pulse" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: none">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
+</span></span>
 </button>
 <div class="acc-panel" hidden="">
 <div class="acc-body m-body">
@@ -1014,13 +1149,14 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 
 <div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Сам создаёшь инструменты для привлечения трафика</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Оцениваешь площадки и закупаешь с умом</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Оцениваешь площадки и закупаешь с умом — НЕ ТЕРЯЕШЬ деньги</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Работаешь с рекламой в Telegram и ВК</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Работаешь с рекламой в Telegram, ВК, Тредс, Авито и HH.ru</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Понимаешь механику выплат</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Понимаешь механику выплат и как ГРАМОТНО распоряжаться бюджетом</span></div>
 
 </div>
+<p class="m-itog">Итог: ты не теряешь деньги впустую, а если допускаешь ошибки — ЗНАЕШЬ почему и улучшаешься с каждым разом.</p>
 </div>
 <img loading="lazy" decoding="async" class="m-shot" src="module_m5.jpg" alt="Модуль 5 в Telegram-канале курса">
 </div>
@@ -1031,16 +1167,16 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <button class="acc" type="button" aria-expanded="false">
 <span style="display: flex; align-items: center; gap: 18px">
 <span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Модуль 6</span>
-<span>Оформление</span>
+<span>Упаковка и креативы</span>
 </span>
-<span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transform: none">
+<span class="acc-r"><span class="acc-tag m-tag">раскрой</span><span class="acc-ic pulse" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: none">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
+</span></span>
 </button>
 <div class="acc-panel" hidden="">
 <div class="acc-body m-body">
 <div class="m-text">
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Telegram-профиль, отзывы для своей связки и рекламные креативы для продвижения в Telegram.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Telegram-профиль, сайт, полная упаковка, отзывы для своей связки и рекламные креативы для ТГ, ВК и Тредс.</p>
 <div style="padding: 16px 18px; border-radius: 14px; background: rgba(255,138,31,0.12); border: 1px solid rgba(255,138,31,0.32); display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FE8931">Результат</span>
 
@@ -1050,7 +1186,10 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 
 <div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Сам готовишь объявления к размещению</span></div>
 
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Умеешь создавать сайты для улучшения конверсии</span></div>
+
 </div>
+
 </div>
 <img loading="lazy" decoding="async" class="m-shot" src="module_m6.jpg" alt="Модуль 6 в Telegram-канале курса">
 </div>
@@ -1063,26 +1202,25 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Модуль 7</span>
 <span>Связки-онлайн</span>
 </span>
-<span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transform: none">
+<span class="acc-r"><span class="acc-tag m-tag">раскрой</span><span class="acc-ic pulse" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: none">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
+</span></span>
 </button>
 <div class="acc-panel" hidden="">
 <div class="acc-body m-body">
 <div class="m-text">
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Практика со связками и Авито: аккаунт, объявление, размещение и оплата. Прокси и работа с площадкой.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Практика со связками на HH.ru, Авито, ВК и Тредс: аккаунт, объявление, размещение и оплата. Прокси и работа с площадкой.</p>
 <div style="padding: 16px 18px; border-radius: 14px; background: rgba(255,138,31,0.12); border: 1px solid rgba(255,138,31,0.32); display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FE8931">Результат</span>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Создаёшь и оформляешь объявления на Авито</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Создаёшь и оформляешь КРУТЫЕ объявления</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Проходишь путь от регистрации до публикации</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Проходишь путь от регистрации до публикации БЕЗ БАНОВ</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Используешь прокси</span></div>
-
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Запускаешь и тестируешь объявления</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Запускаешь и тестируешь объявления, получаешь ТРАФИК</span></div>
 
 </div>
+<p class="m-itog">Итог: ты не допускаешь ГЛУПЫХ ошибок, из-за которых ПОСТОЯННО банят аккаунты, а твои объявления набирают всё БОЛЬШЕ и приносят больше прибыли.</p>
 </div>
 <img loading="lazy" decoding="async" class="m-shot" src="module_m7.jpg" alt="Модуль 7 в Telegram-канале курса">
 </div>
@@ -1093,28 +1231,60 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <button class="acc" type="button" aria-expanded="false">
 <span style="display: flex; align-items: center; gap: 18px">
 <span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Модуль 8</span>
-<span>Масштаб и рост</span>
+<span>Масштаб: 150к и выше</span>
 </span>
-<span style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transform: none">
+<span class="acc-r"><span class="acc-tag m-tag">раскрой</span><span class="acc-ic pulse" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: none">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
+</span></span>
 </button>
 <div class="acc-panel" hidden="">
 <div class="acc-body m-body">
 <div class="m-text">
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Выплаты по документам и налоги — работаем легально. Микроблогеры, поиск людей в команду, вывод средств через Контур.Диадок.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Идём к 150к и выше: как ученики покупают МАШИНЫ, переезжают и путешествуют?</p>
 <div style="padding: 16px 18px; border-radius: 14px; background: rgba(255,138,31,0.12); border: 1px solid rgba(255,138,31,0.32); display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FE8931">Результат</span>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Оформляешь выплаты через Контур.Диадок</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Учим работать легально, платить налоги — и КАК это делать</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Разбираешься в налогах и легальном доходе</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Учим работать с КОМАНДОЙ и таблицами</span></div>
 
-<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Находишь людей в команду и работаешь с микроблогерами</span></div>
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Находишь людей в команду</span></div>
+
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Как строить СИСТЕМУ? — ответим в этом модуле</span></div>
+
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>Даём шаблоны таблиц и учёта, чтобы отслеживать прибыль и рост</span></div>
 
 </div>
+
 </div>
 <img loading="lazy" decoding="async" class="m-shot" src="module_m8.jpg" alt="Модуль 8 в Telegram-канале курса">
+</div>
+</div>
+</div>
+
+<div class="card acc-card" style="border-color: rgba(255,170,80,0.18)">
+<button class="acc" type="button" aria-expanded="false">
+<span style="display: flex; align-items: center; gap: 18px">
+<span class="h gold" style="flex: 0 0 auto; font-size: 30px; min-width: 112px">Бонус</span>
+<span>Продажи от и до</span>
+</span>
+<span class="acc-r"><span class="acc-tag m-tag">раскрой</span><span class="acc-ic pulse" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(180deg,#FFB43A,#FF7A12); display: flex; align-items: center; justify-content: center; color: #140A00; transition: transform .3s ease; transform: none">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+</span></span>
+</button>
+<div class="acc-panel" hidden="">
+<div class="acc-body m-body">
+<div class="m-text">
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #CFCFCF">Отдельный модуль про продажи: как довести клиента до оформления и спокойно отработать любые возражения.</p>
+<div style="padding: 16px 18px; border-radius: 14px; background: rgba(255,138,31,0.12); border: 1px solid rgba(255,138,31,0.32); display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FE8931">Что внутри</span>
+
+<div style="display: flex; gap: 10px; font-size: 15px; line-height: 1.5; color: #FFFFFF"><span style="color: #FF8A1F; font-weight: 800">✓</span><span>4 урока по обработке клиента и его возражений</span></div>
+
+</div>
+
+</div>
+<img loading="lazy" decoding="async" class="m-shot" src="module_b1.jpg" alt="Модуль 9 в Telegram-канале курса">
 </div>
 </div>
 </div>
@@ -1132,6 +1302,37 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <div class="b-shots"><img loading="lazy" decoding="async" class="m-shot" src="module_b1.jpg" alt="Бонусный модуль «Продажи» в Telegram"><img loading="lazy" decoding="async" class="m-shot" src="module_b2.jpg" alt="Бонус «Связки» в Telegram"></div>
 </div>
 <a class="cta" href="https://t.me/m/Iy5CbB3LMTIy" style="align-self: flex-start">Больше о продукте</a>
+</div>
+</section>
+
+<!-- БЛОК 7.5 — ТАРИФЫ -->
+<section id="tariffs" class="sec glow-l " data-k="s13">
+<div class="wrap stack">
+<div class="head">
+<h2 class="h h2"><span class="silver">Два тарифа:</span> <span class="gold">Демониха и Акула</span></h2>
+<p class="lead">Оба дают полную программу. Разница — в том, насколько плотно я веду тебя к первым деньгам.</p>
+</div>
+<div class="tf-grid">
+<div class="card tf">
+<span class="tf-k">Тариф</span>
+<h3 class="h tf-t"><span class="silver">Демониха</span></h3>
+<ul class="arrows">
+<li>Полная программа VA-Банк: модули 0–8</li>
+<li>Бонусы: модуль «Продажи от и до» и связки</li>
+<li>7 источников трафика — сам учишься привлекать клиентов</li>
+</ul>
+<a class="cta cta-ghost" href="https://t.me/m/Iy5CbB3LMTIy">Узнать подробнее</a>
+</div>
+<div class="card tf tf-top">
+<span class="tf-badge">Максимум результата</span>
+<span class="tf-k">Тариф</span>
+<h3 class="h tf-t"><span class="gold">Акула</span></h3>
+<p class="tf-plus">Всё, что в Демонихе, плюс:</p>
+<ol class="tf-list"><li><span class="h tf-n">1</span><div><b class="tf-it">Обратная связь от Никича</b><p>Голосовыми и текстом подскажу, как лучше общаться с лидами, подсвечу ошибки, подскажу. Также есть куратор, который ведёт по базовым вопросам.</p></div></li><li><span class="h tf-n">2</span><div><b class="tf-it">Лучший старт в онлайне</b><p>Тебе не нужно разбираться в связках и копаться — мы сразу погружаем тебя в практику. Выдаём тебе <b>100 лидов с рекламы</b>, которых купили сами. С них можно сделать <b>первые 10–20 тысяч рублей.</b></p><ul class="tf-sub"><li>ты не потратил на это ни рубля</li><li>мы сопроводим и подскажем, как с ними общаться и работать</li><li>доведём до первых заявок</li></ul></div></li><li><span class="h tf-n">3</span><div><b class="tf-it">Доп. модуль по масштабированию</b><p>Как я строю команду? Как предлагаю сделать это тебе? Выдаю свои таблицы, учёты, доходы.</p></div></li><li><span class="h tf-n">4</span><div><b class="tf-it">Доп. источник рекламы</b><p>Только для ребят на личном обучении — с минимальными вложениями.</p></div></li><li><span class="h tf-n">5</span><div><b class="tf-it">Доступ к моему агентству</b><p>Почитаешь примеры переписок, посмотришь, как всё работает изнутри, и как применить это на себе.</p></div></li></ol>
+<p class="tf-note">На Демонихе ты сам учишься привлекать клиентов, <b>а здесь мы даём тебе их сами.</b></p>
+<a class="cta" href="https://t.me/m/Iy5CbB3LMTIy">Хочу на Акулу</a>
+</div>
+</div>
 </div>
 </section>
 
@@ -1180,8 +1381,6 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span style="font-size: 13px; color: #8E8E8E">© 2026 VA-Банк</span>
 </div>
 </footer>
-
-</div>
 <script>
 (function(){
   var secs=[].slice.call(document.querySelectorAll('section[data-k]'));

@@ -490,7 +490,7 @@ h2.h,h3.h{line-height:1.06}
 .who-media .who-ph{position:absolute;inset:0;width:100%;height:100%;min-height:0;aspect-ratio:auto;object-fit:cover;object-position:50% 25%;border:0}
 .who-badge{position:absolute;top:14px;left:14px;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;border-radius:999px;background:rgba(12,10,8,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(254,137,49,.6);color:#fff;font-family:Oswald,sans-serif;font-weight:600;font-size:16px;letter-spacing:.03em;text-transform:uppercase;line-height:1;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .who-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#FE8931;box-shadow:0 0 10px #FE8931}
-.sticker{position:absolute;right:16px;bottom:18px;z-index:2;width:min(58%,290px);box-sizing:border-box;padding:18px 18px 16px;background:#FFE27A;color:#1B1408;font-family:Caveat,cursive;font-size:22px;font-weight:700;line-height:1.12;transform:rotate(-3deg);border-radius:4px;box-shadow:0 16px 34px rgba(0,0,0,.5)}
+.sticker{position:relative;align-self:center;margin:6px auto 22px !important;width:min(86%,380px);box-sizing:border-box;padding:18px 18px 16px;background:#FFE27A;color:#1B1408;font-family:Caveat,cursive;font-size:22px;font-weight:700;line-height:1.12;transform:rotate(-3deg);border-radius:4px;box-shadow:0 16px 34px rgba(0,0,0,.5)}
 .sticker::before{content:"";position:absolute;top:-10px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(2deg);background:rgba(255,255,255,.55)}
 .sticker .st-end{display:block;margin-top:8px}
 .who-quote{position:absolute;left:14px;right:14px;bottom:14px;z-index:2;padding:14px 16px;border-radius:14px;background:rgba(12,10,8,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-left:3px solid #FE8931;font-size:15px;line-height:1.45;color:#F2F2F2;font-style:italic}
@@ -546,7 +546,7 @@ h2.h,h3.h{line-height:1.06}
 @media (max-width:760px){
 .who-grid{grid-template-columns:1fr !important}
 .who-media{flex:none;min-height:0;aspect-ratio:4/5}
-.sticker{width:66%;font-size:19px;padding:14px 14px 12px;right:10px;bottom:12px}
+.sticker{width:88%;font-size:20px;padding:16px 16px 14px}
 .pq-grid{columns:1}.pq{margin-bottom:10px;padding:16px 18px}.pq blockquote{font-size:16px}
 .cs-row:not(.cs-row-p){grid-template-columns:1fr}.cs-media:not(.cs-tall){aspect-ratio:4/5}.rv-grid{grid-template-columns:1fr;gap:10px}.rv-col{gap:10px}
 .tf{padding:28px 20px}
@@ -555,6 +555,43 @@ h2.h,h3.h{line-height:1.06}
 }
 
 .tf p,.tf li,.tf-it,.story p,.cs-plaque p,.m-itog,.pq blockquote,.pq-end,.mission-t p,.who-quote,.cs-tabs label{font-family:'Inter Tight',sans-serif}
+.rv-txt{border-radius:0;border:0;background:#141414;padding:18px 20px 20px}
+.rv-sub{position:absolute;left:14px;top:52px;z-index:2;padding:6px 12px;border-radius:999px;background:rgba(12,10,8,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:12px;font-weight:600;color:#EDEDED;font-family:'Inter Tight',sans-serif}
+
+/* === правки 08.11 === */
+.b-cut{display:none}
+.r-q{position:absolute;margin:0;font-family:Caveat,cursive;font-weight:700;font-size:30px;line-height:1.05;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.r-q-1{left:0;top:73%;transform:rotate(-6deg)}
+.r-q-2{left:14%;top:88%;transform:rotate(-3deg);color:#FFB45A}
+.r-q::before{content:"";position:absolute;left:-14px;top:.35em;width:6px;height:6px;border-radius:50%;background:#FE8931}
+.sec:not(.in) .r-q{opacity:0}.sec.in .r-q-1{animation:fadeUp .7s ease-out .9s both}.sec.in .r-q-2{animation:fadeUp .7s ease-out 1.2s both}
+.note .note-res{font-weight:700;color:#fff;padding:14px 18px;border-radius:14px;background:rgba(254,137,49,.1);border:1px solid rgba(254,137,49,.35)}
+.note p b{color:#fff}
+.who > .who-media{margin-top:14px}
+@media (max-width:760px){
+.stage .b-bg-m{inset:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform:translateY(-17%) scale(1.32);transform-origin:50% 50%}
+.stage .b-cut{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;z-index:3;pointer-events:none;transform:translateY(-17%) scale(1.32);transform-origin:50% 50%}
+.stage .b-shade{z-index:1}
+.stage .b-in{align-items:center !important;padding:18px 16px 24px !important}
+.stage .b-copy .b-title{order:1;position:relative;z-index:2;margin-top:4px;text-align:center !important;filter:drop-shadow(0 0 18px rgba(0,0,0,.95)) drop-shadow(0 4px 10px rgba(0,0,0,.8))}
+.stage .b-copy .b-title::before{content:"";position:absolute;inset:-18% -8% -10%;z-index:-1;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(0,0,0,.72),rgba(0,0,0,0) 72%);pointer-events:none}
+.stage .b-copy .b-h{font-size:min(10.6cqw,54px)}
+.stage .b-badge{order:2;position:relative;z-index:4;margin-top:-2px}
+.stage .b-copy .b-sub{order:3;z-index:4;text-align:center !important;margin-left:auto;margin-right:auto;max-width:88cqw}
+.stage .mc{z-index:4;left:-3cqw;top:50%;width:34cqw}
+.rv-img .who-badge{font-size:12px;padding:6px 10px 6px 9px;top:10px;left:10px}
+.rv-img .rv-sub{top:40px;left:10px;font-size:10.5px;padding:4px 9px}
+.r-photos{gap:14px}
+.r-q{position:static;font-size:26px;text-align:center;transform:rotate(-3deg)}
+.r-q-2{transform:rotate(2deg)}
+.r-q::before{display:none}
+}
+
+/* 08.11 b */
+.who-grid > .who{padding-top:22px !important;padding-bottom:22px}
+.who-grid > .who > .num{display:block;align-self:flex-start;margin-top:0}
+.life-g figcaption .cap{font-family:Oswald,sans-serif;font-size:22px;font-weight:600;letter-spacing:.01em;line-height:1.05;color:#FE8931;margin-bottom:6px}
+.life-g figcaption{font-family:'Inter Tight',sans-serif}
 </style>
 <style>html{scroll-behavior:smooth}body{margin:0;background:#0A0A0A}</style>
 <script>
@@ -586,7 +623,8 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <img class="b-blur" src="banner_bg3.jpg" alt="" aria-hidden="true">
 <div class="b-in">
 <img class="b-bg" src="banner_bg3.jpg" alt="" aria-hidden="true">
-<img class="b-bg-m" src="mob_bg.jpg" alt="" aria-hidden="true">
+<img class="b-bg-m" src="mob_bg2.jpg" alt="" aria-hidden="true">
+<img class="b-cut" src="mob_cut.webp" alt="" aria-hidden="true">
 <div class="orb o-r1" aria-hidden="true"></div>
 <div class="orb o-r2" aria-hidden="true"></div>
 <div class="orb o-d1" aria-hidden="true"></div>
@@ -604,7 +642,7 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <img class="orb o-gift" src="gift_dl.svg" alt="" aria-hidden="true">
 <div class="b-shade" aria-hidden="true"></div>
 <div class="b-copy">
-<span class="b-badge">Лучшая ниша 2026 года</span>
+<span class="b-badge">Лучшая ниша 2026–27 года</span>
 <h1 class="b-title"><span class="b-h silver">Трафик</span><span class="b-h silver">на банки —</span><span class="b-h gold">это просто</span></h1>
 <p class="b-sub">Ты сможешь зарабатывать <b><span class="nw">от&nbsp;100–150к</span> рублей в&nbsp;месяц</b> на&nbsp;трафике без&nbsp;вложений и&nbsp;опыта.</p>
 </div>
@@ -692,13 +730,12 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <!-- БЛОК 2 — ДЛЯ КОГО -->
 <section id="who" class="sec " data-k="s2">
 <div class="wrap stack">
-<h2 class="h h2"><span class="silver">Для кого подойдёт</span> <span class="gold">VA-Банк?</span></h2>
+<h2 class="h h2"><span class="silver">Для кого подойдёт</span> <span class="gold nw">VA-Банк?</span></h2>
 <div class="who-grid">
 <article class="card who">
-<div class="who-media"><img loading="lazy" decoding="async" class="who-ph" src="i_photo.jpg" alt="Ваня: до и после"><span class="who-badge">Как Ваня</span>
-<div class="sticker"><b>до этого:</b><br>— перевозчик в Озоне<br>— таксист эконома<br>— продавец в дилере<br>— продавец в Билайне<br><span class="st-end">короче, он всё перепробовал) а щас купил хорошую тачку, заработав деньги на трафике, с облегчением</span></div></div>
 <span class="h num">01</span>
 <p>Ты окончательно за%#ался в найме или в онлайне с клиентами и хочешь <span class="hl">вернуть контроль</span> над жизнью и свою систему заработка.</p>
+<div class="who-media"><img loading="lazy" decoding="async" class="who-ph" src="i_photo.jpg" alt="Ваня: до и после"><span class="who-badge">Как Ваня</span></div><div class="sticker"><b>до этого:</b><br>— перевозчик в Озоне<br>— таксист эконома<br>— продавец в дилере<br>— продавец в Билайне<br><span class="st-end">короче, он всё перепробовал) а щас купил хорошую тачку, заработав деньги на трафике, с облегчением</span></div>
 </article>
 <article class="card who who-4">
 <span class="h num">02</span>
@@ -726,9 +763,9 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 </div>
 </article>
 <article class="card who">
-<div class="who-media"><img loading="lazy" decoding="async" class="who-ph" src="v_photo.jpg" alt="Никич и Вова в кафе"><span class="who-badge">Как Вова</span></div>
 <span class="h num">03</span>
 <p>Ты уже пытался, пробовал схемы, платил за курсы и сливался, не дойдя до результата. <span class="hl">Но ещё не сдался.</span></p>
+<div class="who-media"><img loading="lazy" decoding="async" class="who-ph" src="v_photo.jpg" alt="Никич и Вова в кафе"><span class="who-badge">Как Вова</span></div>
 <div class="story">
 <span class="st-k">▪️ Отправная точка</span>
 <p>Работал инструктором на Saborde, получал <b>максимум 60к в месяц</b>, параллельно волонтёрил и помогал отцу на стройке. В конце 11 класса решил попробовать себя в трафике.</p>
@@ -739,10 +776,10 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 </div>
 </article>
 <article class="card who">
-<div class="who-media"><img loading="lazy" decoding="async" class="who-ph" src="d_photo.jpg" alt="Денис и его выплаты"><span class="who-badge">Как Денис</span>
-<div class="who-quote">«Вообще не понимал, что такое финансовая вертикаль и РКО и главное — <b>как на этом зарабатывать</b>»</div></div>
 <span class="h num">04</span>
 <p>Ты добился небольшого результата с инфы в интернете, но так и не смог <span class="hl">масштабировать его.</span></p>
+<div class="who-media"><img loading="lazy" decoding="async" class="who-ph" src="d_photo.jpg" alt="Денис и его выплаты"><span class="who-badge">Как Денис</span>
+<div class="who-quote">«Вообще не понимал, что такое финансовая вертикаль и РКО и главное — <b>как на этом зарабатывать</b>»</div></div>
 <div class="who-shots"><img loading="lazy" decoding="async" src="w_denis_s.jpg" alt="Денис: чем занимался до финансовой вертикали"></div>
 </article>
 </div>
@@ -763,9 +800,9 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <h2 class="h h2"><span class="silver">Результаты</span> <span class="gold">учеников</span></h2>
 <p class="lead">Переписки, выплаты, статистика и истории тех, кто уже прошёл путь в трафике.</p>
 </div>
-<div class="rv-grid"><div class="rv-col"><figure class="shot rv"><div class="rv-img"><img src="rv_ilya.jpg" alt="Илья и его статистика в LeadStore" loading="lazy"><span class="who-badge">Илья</span></div></figure><figure class="shot rv"><div class="rv-img"><img src="rv_bal.jpg" alt="Баланс 169 тысяч и отзыв: 140к за первые 2 недели" loading="lazy"></div></figure><figure class="shot rv"><div class="rv-img"><img src="rv_wauze.jpg" alt="Статистика и одобрения ученика WauzeX" loading="lazy"></div></figure></div><div class="rv-col"><figure class="shot rv"><div class="rv-img"><img src="rv_g1.jpg" alt="Статистика: 2,3 млн ₽ дохода" loading="lazy"></div><div class="rv-img"><img src="rv_g2.jpg" alt="Переписка: больше 200 ЦД и 3 млн за месяц" loading="lazy"></div><div class="rv-img"><img src="rv_g3.jpg" alt="Ученик купил BMW" loading="lazy"></div></figure></div><div class="rv-col"><figure class="shot rv"><div class="rv-img"><img src="rv_nastya_p.jpg" alt="Анастасия" loading="lazy"><span class="who-badge">Анастасия, 19 лет</span></div><div class="rv-img"><img src="rv_nastya_s.jpg" alt="История Анастасии: точка А и точка Б" loading="lazy"></div></figure><figure class="shot rv"><div class="rv-img"><img src="rv_azamat.jpg" alt="История Азамата: 300 тысяч в месяц" loading="lazy"></div></figure></div></div></div>
-</section></div>
-
+<div class="rv-grid"><div class="rv-col"><figure class="shot rv"><div class="rv-img"><img src="rv_ilya.jpg" alt="Илья и его статистика в LeadStore" loading="lazy"><span class="who-badge">Илья</span></div></figure><figure class="shot rv"><div class="rv-img"><img src="rv_bal.jpg" alt="Баланс 169 тысяч и отзыв: 140к за первые 2 недели" loading="lazy"></div></figure><figure class="shot rv"><div class="rv-img"><img src="rv_wauze.jpg" alt="Статистика и одобрения ученика WauzeX" loading="lazy"></div></figure></div><div class="rv-col"><figure class="shot rv"><div class="rv-img"><img src="rv_g1.jpg" alt="Статистика: 2,3 млн ₽ дохода" loading="lazy"></div><div class="rv-img"><img src="rv_g2.jpg" alt="Переписка: больше 200 ЦД и 3 млн за месяц" loading="lazy"></div><div class="rv-img"><img src="rv_g3.jpg" alt="Ученик купил BMW" loading="lazy"></div></figure></div><div class="rv-col"><figure class="shot rv"><div class="rv-img"><img src="rv_nastya_p.jpg" alt="Анастасия" loading="lazy"><span class="who-badge">Анастасия, 19 лет</span><span class="rv-sub">ученица летнего РКО Season</span></div><div class="story rv-txt"><span class="st-k">▪️ Точка А</span><p>Найм: официант за 80–150 ₽/час без выходных, <b>получала 20–30 тыс. ₽ в месяц.</b></p><p>Начала углубляться в товарку — и на закупе очередной партии кроссовок за 50 тыс. ₽ её обманули. Ни кроссовок, ни денег. Купила обучение по РКО за 30 тыс. ₽ — оказалось некачественным. Прогорела.</p><span class="st-k">▪️ Точка Б</span><p>С тест-драйва сделала <b>200 тыс. ₽ за 2 месяца.</b> На эти деньги взяла следующее обучение по РКО — и заработала с него <b>300 тыс. ₽ за 2 месяца.</b></p></div></figure><figure class="shot rv"><div class="rv-img"><img src="rv_azamat.jpg" alt="История Азамата: 300 тысяч в месяц" loading="lazy"></div></figure></div></div>
+</div>
+</section>
 
 <!-- БЛОК 3 — ПРИЧИНЫ -->
 <section class="sec " data-k="s3">
@@ -821,13 +858,15 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 </div>
 <div class="r-photos" aria-hidden="true">
 <img loading="lazy" decoding="async" class="r-ph r-ph-1" src="r_mirror.jpg" alt="">
-<img loading="lazy" decoding="async" class="r-ph r-ph-2" src="r_book.jpg" alt="">
+<p class="r-q r-q-1">«Никич, разве это всё,<br>что нужно знать?»</p>
+<p class="r-q r-q-2">«Может, есть ещё<br>какие-то проблемы?»</p>
 </div>
 </div>
 <div class="note">
-<p>Но это ещё не всё. Когда я создавал это обучение, мы с учениками и командой нашли главную проблему ВСЕХ, кто начинает путь в трафике на банки: <span class="hl">«Откуда брать трафик?»</span></p>
+<p>Но это ещё не всё. Когда я создавал это обучение, мы с учениками и командой нашли главную проблему ВСЕХ, кто начинает путь в трафике на банки: <span class="hl">«Откуда брать клиентов?»</span></p>
 <p class="note-h">И я придумал очень крутую систему обучения — её нет ни у кого на рынке.</p>
-<p>Обучение сделано так, чтобы поэтапно прийти к пониманию, откуда брать трафик, а также настроить всё так, чтобы со временем лиды приходили почти пассивно, но регулярно.</p>
+<p>Я выдаю <b>7 источников трафика</b>, чтобы у тебя ТОЧНО вышло. Но) даже если не выйдет — я и моя команда будем поставлять тебе трафик.</p>
+<p class="note-res">Итог: мы проведём тебя ОТ и ДО по трафику и закроем этот вопрос, чтобы клиенты были стабильными, а в худшем случае — будем поставлять их тебе сами. Варианта не заработать нет)</p>
 </div>
 </div>
 </section>
@@ -947,7 +986,7 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 </figure>
 </div>
 <div class="card creator">
-<span class="h creator-t">Создатель RKO Season и VA-БАНК</span>
+<span class="h creator-t">Создатель RKO Season и <span class="nw">VA-БАНК</span></span>
 <p>Это не курс про успешный успех, а система, где главное — твой результат. Строю свою онлайн-академию по трафику и веду за руку до первых <span class="hl">150–300к</span>.</p>
 </div>
 </div>
@@ -958,10 +997,7 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <div class="wrap stack">
 <div class="head">
 <h2 class="h h2"><span class="gold">VA-Банк</span> <span class="silver">закрывает все нюансы</span></h2>
-<p class="lead">Когда я создавал это обучение, мы с учениками и командой нашли главную проблему ВСЕХ, кто начинает путь в трафике на банки: <b>«Откуда брать клиентов?»</b></p>
-<p class="lead">И я придумал очень крутую систему обучения — её нет ни у кого на рынке.</p>
-<p class="lead">Я выдаю <b>7 источников трафика</b>, чтобы у тебя ТОЧНО вышло. Но) даже если не выйдет — я и моя команда будем поставлять тебе трафик.</p>
-<p class="lead lead-res"><b>Итог: мы проведём тебя ОТ и ДО по трафику и закроем этот вопрос, чтобы клиенты были стабильными, а в худшем случае — будем поставлять их тебе сами. Варианта не заработать нет)</b></p>
+<p class="lead">Ты либо сам разбираешься в трафике, изучив <b>7 рабочих подходов</b>, либо я поставляю тебе трафик. Не получиться просто не может.</p>
 </div>
 <h3 id="modules" class="h h3" style="scroll-margin-top: 24px"><span class="silver">Системный выход на</span> <span class="gold">150–300к</span></h3>
 <div style="display: flex; flex-direction: column; gap: 10px">
@@ -1298,6 +1334,10 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span style="padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,190,110,0.3); font-size: 14px; font-weight: 700">Связка «Редирект»</span>
 <span style="padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,190,110,0.3); font-size: 14px; font-weight: 700">Связка «Нано-блогеры»</span>
 <span style="padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,190,110,0.3); font-size: 14px; font-weight: 700">Связка «Тредс / ВК»</span>
+<span style="padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,190,110,0.3); font-size: 14px; font-weight: 700">Связка «WorkZilla»</span>
+<span style="padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,190,110,0.3); font-size: 14px; font-weight: 700">Чат с куратором</span>
+<span style="padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,190,110,0.3); font-size: 14px; font-weight: 700">Скрипты команды Никича</span>
+<span style="padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,190,110,0.3); font-size: 14px; font-weight: 700">Эфиры раз в 2 недели</span>
 </div>
 <div class="b-shots"><img loading="lazy" decoding="async" class="m-shot" src="module_b1.jpg" alt="Бонусный модуль «Продажи» в Telegram"><img loading="lazy" decoding="async" class="m-shot" src="module_b2.jpg" alt="Бонус «Связки» в Telegram"></div>
 </div>
@@ -1381,6 +1421,8 @@ window.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='I
 <span style="font-size: 13px; color: #8E8E8E">© 2026 VA-Банк</span>
 </div>
 </footer>
+
+</div>
 <script>
 (function(){
   var secs=[].slice.call(document.querySelectorAll('section[data-k]'));
